@@ -7,6 +7,8 @@ class Locators_Mercado_Libre():
 
     Download_path = "C:\\Automation\\Mercado_Libre\\Downloads"
 
+    Evidence_path =  "C:\\Automation\\Mercado_Libre\\Evidence"
+
     file_name = f"Test_Playstation5_{date.today()}.txt"
 
     General_File_path = f"C:\\Automation\\Mercado_Libre\\Evidence\\{file_name}"
@@ -53,6 +55,5 @@ class Locators_Mercado_Libre():
     str_Email = "pruebasl735@gmail.com"
 
     str_Password = "ntgd rzno bgea zquo"
-
 
     list_To_Email =  ['cabreraemi@globalhitss.com', 's_fuentesrj@globalhitss.com', 'ruizro@hitss.com', 'vencesa@hitss.com']

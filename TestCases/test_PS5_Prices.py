@@ -1,5 +1,6 @@
 import os
 import time
+import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -16,6 +17,7 @@ class Test_PS5_Prices():
     def __init__(self):
         self.Driver_path = Locators_Mercado_Libre.Driver_path
         self.Download_path = Locators_Mercado_Libre.Download_path
+        self.Evidence_path = Locators_Mercado_Libre.Evidence_path
         self.file_name = Locators_Mercado_Libre.file_name
         self.General_File_path = Locators_Mercado_Libre.General_File_path
         self.URL = Locators_Mercado_Libre.URL
@@ -37,6 +39,11 @@ class Test_PS5_Prices():
         with open(self.General_File_path, 'a') as fichero:
             fichero.write(message) 
 
+    def generate_image_name(self):
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        regular_name = "captura_ejecucion"
+        return f"{self.Evidence_path}\\{regular_name}_{timestamp}.png"
+
     def test_Obtain_Prices(self):
         # Specify Services as Driver Path
         service = Service(executable_path = self.Driver_path , log_path=os.devnull)
@@ -55,6 +62,9 @@ class Test_PS5_Prices():
         driver.maximize_window()
         driver.get(self.URL)
 
+        # Take Screenshoot
+        driver.save_screenshot(self.generate_image_name())
+
         try:
             WebDriverWait(driver, 10).until(
                 EC.visibility_of_element_located((By.ID, self.id_MX))
@@ -64,6 +74,9 @@ class Test_PS5_Prices():
 
         # Click on Mexico
         driver.find_element(By.ID, self.id_MX).click()
+
+        # Take Screenshoot
+        driver.save_screenshot(self.generate_image_name())
 
         try:
             WebDriverWait(driver, 10).until(
@@ -94,6 +107,8 @@ class Test_PS5_Prices():
         # Search 'PlayStation 5
         driver.find_element(By.ID, self.id_Search_Box).click()
         driver.find_element(By.ID, self.id_Search_Box).send_keys("playstation 5")
+        # Take Screenshoot
+        driver.save_screenshot(self.generate_image_name())
         driver.find_element(By.ID, self.id_Search_Box).send_keys(Keys.ENTER)
 
         # Click on 'Nuevo'
@@ -106,6 +121,9 @@ class Test_PS5_Prices():
             time.sleep(10)
         except Exception as e:
             print("\nError on Click 'Nuevo': ", e)
+
+        # Take Screenshoot
+        driver.save_screenshot(self.generate_image_name())
 
         # Order by Price
         try:
@@ -125,6 +143,9 @@ class Test_PS5_Prices():
             
         except Exception as e:
             print("Error: ", e)
+
+        # Take Screenshoot
+        driver.save_screenshot(self.generate_image_name())
 
         time.sleep(5)
 

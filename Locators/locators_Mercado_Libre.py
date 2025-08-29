@@ -54,4 +54,5 @@ class Locators_Mercado_Libre():
 
     str_Password = "ntgd rzno bgea zquo"
 
-    list_To_Email =  ['cabreraemi@globalhitss.com', 's_fuentesrj@globalhitss.com', 'ruizro@hitss.com']
+
+    list_To_Email =  ['cabreraemi@globalhitss.com', 's_fuentesrj@globalhitss.com', 'ruizro@hitss.com', 'vencesa@hitss.com']

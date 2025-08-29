@@ -29,8 +29,10 @@ This project is a web automation script built with Python and Selenium to intera
 
 1. Clone the repository
 2. Install dependencies on with pip install -r requirements.txt
-3. Run the script with python -m pytest -s  main.py
+3. Change the main Paths in the 'locators_Mercado_Libre' file.
+4. Run the script with python -m pytest -s  main.py
 
 ## Contact
+
 
 - Emiliano Cabrera Perez
